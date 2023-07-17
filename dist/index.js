@@ -106,7 +106,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             logger.info(`Initializing ...`);
-            logger.info(`Token ... ${core.getInput('GITHUB_TOKEN')}`);
+            logger.info(`Token ... ${core.getInput('github-token')}`);
             const eventName = github.context.eventName;
             const octokit = new action_1.Octokit();
             let base;
@@ -140,13 +140,13 @@ function run() {
             }
             for (const file of files) {
                 if (file.status === 'modified') {
-                    logger.info(`Modified File: ${file}`);
+                    logger.info(`Modified File: ${JSON.stringify(file)}`);
                 }
                 else if (file.status === 'renamed') {
-                    logger.info(`Renamed File: ${file}`);
+                    logger.info(`Renamed File: ${JSON.stringify(file)}`);
                 }
                 else if (file.status === 'added') {
-                    logger.info(`Added File: ${file}`);
+                    logger.info(`Added File: ${JSON.stringify(file)}`);
                 }
             }
         }
