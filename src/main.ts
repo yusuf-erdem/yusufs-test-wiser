@@ -1,14 +1,14 @@
 import * as core from '@actions/core'
 import * as logger from './logger'
 import * as github from '@actions/github'
-
+import {Octokit} from '@octokit/action'
 async function run(): Promise<void> {
   try {
     logger.info(`Initializing ...`)
-    logger.info(`Token ... ${core.getInput('github.token')}`)
-    const client = github.getOctokit(core.getInput('github.token'))
+    logger.info(`Token ... ${core.getInput('GITHUB_TOKEN')}`)
     const eventName = github.context.eventName
 
+    const octokit = new Octokit()
     let base: string | undefined
     let head: string | undefined
 
@@ -27,7 +27,7 @@ async function run(): Promise<void> {
       head = ''
     }
 
-    const response = await client.rest.repos.compareCommits({
+    const response = await octokit.rest.repos.compareCommits({
       base,
       head,
       owner: github.context.repo.owner,
