@@ -1,8 +1,10 @@
 import * as core from '@actions/core'
 import {wait} from './wait'
+import * as logger from './logger'
 
 async function run(): Promise<void> {
   try {
+    logger.info(`Initializing ...`)
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
 
