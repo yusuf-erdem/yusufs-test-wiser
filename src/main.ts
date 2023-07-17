@@ -5,8 +5,8 @@ import * as github from '@actions/github'
 async function run(): Promise<void> {
   try {
     logger.info(`Initializing ...`)
-    logger.info(`Token ... ${core.getInput('token')}`)
-    const client = github.getOctokit(core.getInput('token'))
+    logger.info(`Token ... ${core.getInput('github.token')}`)
+    const client = github.getOctokit(core.getInput('github.token'))
     const eventName = github.context.eventName
 
     let base: string | undefined

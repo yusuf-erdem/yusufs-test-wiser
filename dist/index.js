@@ -105,8 +105,8 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             logger.info(`Initializing ...`);
-            logger.info(`Token ... ${core.getInput('token')}`);
-            const client = github.getOctokit(core.getInput('token'));
+            logger.info(`Token ... ${core.getInput('github.token')}`);
+            const client = github.getOctokit(core.getInput('github.token'));
             const eventName = github.context.eventName;
             let base;
             let head;
