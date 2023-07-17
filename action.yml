@@ -1,6 +1,6 @@
-name: 'Your name here'
+name: 'Yuauf's personal test wiser'
 description: 'Provide a description here'
-author: 'Your name or organization here'
+author: 'Yusuf Catchpoint'
 inputs:
   milliseconds: # change this
     required: true
